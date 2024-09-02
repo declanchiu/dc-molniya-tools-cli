@@ -1,0 +1,22 @@
+{
+  "name": "dc-molniya-tools-cli",
+  "version": "1.0.0",
+  "description": "DeclanChiu 的个人 cli 工具",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "dmtc": "dist/index.js"
+  },
+  "scripts": {
+    "dev": "esno ./src/start.ts",
+    "build": "tsup"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.5.2",
+    "esno": "^4.7.0",
+    "tsup": "^8.2.4"
+  }
+}

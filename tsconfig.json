@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+      "resolveJsonModule": true,
+      "declaration": true,
+      "skipLibCheck": true,
+      "esModuleInterop": false,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "experimentalDecorators": true,
+      "allowSyntheticDefaultImports": true,
+      "module": "ES2020",
+      "target": "ESNext",
+      "moduleResolution": "node",
+      "lib": ["ES2020"],
+      "baseUrl": ".",
+  },
+  "include": ["src/**/*.ts", "src/**/*.json"],
+  "exclude": ["node_modules"]
+}
