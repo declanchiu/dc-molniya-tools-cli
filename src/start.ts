@@ -1,6 +1,6 @@
 #!/usr/bin/env node
+import pkg from 'package.json';
 import { program } from 'commander';
-
 import { stageCommit } from './modules/git/stage-commit';
 import { fullPathCommit } from './modules/git/full-path-commit';
 
@@ -22,4 +22,7 @@ function initCommand() {
 
 initCommand();
 
-program.parse(process.argv);
+// 挂载基础
+program
+  .version(pkg.version, '-v, --version', '输出版本号')
+  .parse(process.argv);
