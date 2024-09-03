@@ -1,6 +1,6 @@
 {
   "name": "dc-molniya-tools-cli",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "DeclanChiu 的个人 cli 工具",
   "main": "index.js",
   "type": "module",
