@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import pkg from 'package.json';
 import { program } from 'commander';
-import { stageCommit } from './modules/git/stage-commit';
-import { fullPathCommit } from './modules/git/full-path-commit';
+import { stageCommit } from './modules/git/actions/stage-commit';
+import { fullPathCommit } from './modules/git/actions/full-path-commit';
 
 function initCommand() {
   program

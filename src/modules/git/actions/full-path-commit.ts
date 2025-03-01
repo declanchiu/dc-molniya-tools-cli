@@ -1,4 +1,4 @@
-import { runGitAdd, runGitPush } from './commit-cell';
+import { runGitAdd, runGitPush } from '../helper/commit-cell';
 import { stageCommit } from './stage-commit';
 
 export const fullPathCommit = async () => {

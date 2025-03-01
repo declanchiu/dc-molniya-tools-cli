@@ -1,4 +1,4 @@
-import type { PromptOptions } from './type';
+import type { PromptOptions } from '../type';
 
 import Fuse from 'fuse.js';
 import inquirer from 'inquirer';

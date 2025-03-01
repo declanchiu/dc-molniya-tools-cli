@@ -1,5 +1,5 @@
-import { runGitCommit } from './commit-cell';
-import { getEmojisCommitInfo } from './emojis';
+import { runGitCommit } from '../helper/commit-cell';
+import { getEmojisCommitInfo } from '../helper/emojis';
 
 export const stageCommit = async () => {
   const data = await getEmojisCommitInfo();

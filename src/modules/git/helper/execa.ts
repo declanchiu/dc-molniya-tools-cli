@@ -1,0 +1,10 @@
+import { execa } from 'execa';
+import { firstPushOriginBranchError } from "./error";
+
+export const handleExeca = async (command: string, subcommand: string[], options?: any) => {
+  try {
+    await execa(command, subcommand, options);
+  } catch(error) {
+    firstPushOriginBranchError(error);
+  }
+}

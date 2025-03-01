@@ -1,9 +1,9 @@
-import type { CommitInfoType } from './type';
+import type { CommitInfoType } from '../type';
 
-import emojiJSON from "./emoji.json";
+import emojiJSON from "../assets/emoji.json";
 
 import ora from 'ora';
-import prompts from './prompt';
+import prompts from '../helper/prompt';
 import inquirer from "inquirer";
 
 export const getEmojisCommitInfo = async (): Promise<CommitInfoType> => {
