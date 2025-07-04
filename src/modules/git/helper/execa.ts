@@ -5,6 +5,8 @@ export const handleExeca = async (command: string, subcommand: string[], options
   try {
     await execa(command, subcommand, options);
   } catch(error) {
-    firstPushOriginBranchError(error);
+    const handled = await firstPushOriginBranchError(error);
+    if (handled) return;
+    throw error;
   }
 }

@@ -1,27 +1,55 @@
 # .github/workflows/publish.yml
 
-name: Publish Package to npmjs
+name: Publish to npm
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
+    paths:
+      - 'package.json'
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
-          registry-url: 'https://registry.npmjs.org'
-      - run: npm install -g pnpm
-      - run: pnpm install
-      - run: pnpm run build
-      - run: npm publish
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check if version changed
+        id: version_check
+        run: |
+          git fetch origin main
+          PREV_VERSION=$(git show origin/main:package.json | jq -r .version)
+          CURR_VERSION=$(jq -r .version package.json)
+          echo "prev=$PREV_VERSION" >> $GITHUB_OUTPUT
+          echo "curr=$CURR_VERSION" >> $GITHUB_OUTPUT
+          if [ "$PREV_VERSION" = "$CURR_VERSION" ]; then
+            echo "Version not changed, skipping publish."
+            exit 1
+          fi
+
+      - name: Publish to npm
+        if: steps.version_check.outcome == 'success'
+        run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_USE }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
