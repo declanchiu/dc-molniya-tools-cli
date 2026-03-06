@@ -1,16 +1,16 @@
 import { handleExeca } from "./execa";
 
 export const runGitAdd = async () => {
-  handleExeca('git', ['add', '.'], {
+  await handleExeca('git', ['add', '.'], {
     buffer: false,
     stdio: 'inherit'
   });
 }
 
-export const runGitCommit = (message: string) => {
-  handleExeca("git", ['commit', '-m', message])
+export const runGitCommit = async (message: string) => {
+  await handleExeca("git", ['commit', '-m', message]);
 }
 
-export const runGitPush = () => {
-  handleExeca("git", ['push']);
+export const runGitPush = async () => {
+  await handleExeca("git", ['push']);
 }
