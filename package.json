@@ -1,7 +1,7 @@
 {
   "name": "dc-molniya-tools-cli",
   "version": "1.0.6",
-  "description": "DeclanChiu 的个人 cli 工具",
+  "description": "一个优雅的 Git 工作流 CLI 工具，让提交变得简单而有趣",
   "main": "index.js",
   "type": "module",
   "bin": {
@@ -16,9 +16,24 @@
     "build": "tsup",
     "test": "vitest run"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "git",
+    "cli",
+    "commit",
+    "emoji",
+    "workflow",
+    "automation"
+  ],
+  "author": "DeclanChiu <coderqzj@gmail.com>",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/declanchiu/dc-molniya-tools-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/declanchiu/dc-molniya-tools-cli/issues"
+  },
+  "homepage": "https://github.com/declanchiu/dc-molniya-tools-cli#readme",
   "devDependencies": {
     "@types/node": "^22.5.2",
     "commander": "^12.1.0",
