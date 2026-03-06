@@ -14,7 +14,8 @@
     "dev": "esno ./src/start.ts",
     "watch": "tsup --watch",
     "build": "tsup",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepublishOnly": "pnpm build"
   },
   "keywords": [
     "git",
